@@ -1,12 +1,12 @@
 // The model!
 function init(Schema, mongoose){
 	var TheSchema = new Schema({
-		title: String,
-		complete: Boolean,
-        important: Boolean
+		name: String,
+		message: String,
+        email: String
 	});
 
-	return mongoose.model('Item', TheSchema);
+	return mongoose.model('Wish', TheSchema);
 }
 
 module.exports.init = init;

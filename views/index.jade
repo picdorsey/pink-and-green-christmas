@@ -2,4 +2,22 @@ extends layout
 
 block content
   div#content
-    | This is my app!
+    form(id='form')
+        h2 What I want for christmas...
+        input(id='name', placeholder='Name', name='name')
+        input(id='email', placeholder='Email', name='email')
+
+
+    form(id='todo-form')
+      div.modal-body
+        h4 New Task:
+        input(id='new-todo', placeholder="What needs to be done?", name='title')
+        div.well.important
+          label
+            input(id='new-todo-important' type="checkbox" name="important" value="1")
+            | Is this important?
+      div.modal-footer
+        a(class="btn" data-dismiss="modal" aria-hidden="true")
+          | Close
+        input(type="submit" class="btn btn-primary" )
+          | Submit

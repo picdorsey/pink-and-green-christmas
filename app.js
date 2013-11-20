@@ -12,15 +12,16 @@ var express = require('express')
   , db = mongoose.connect('mongodb://localhost/chrismtas')
   , Schema = mongoose.Schema
   , ObjectID = Schema.ObjectId
-  , Item = require('./models/item.js').init(Schema, mongoose);
+  , Wish = require('./models/wish.js').init(Schema, mongoose);
 
 
 var app = express();
 
 app.configure(function(){
+  app.engine('.html', require('ejs').__express);
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+  app.set('view engine', 'html');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
