@@ -47,8 +47,7 @@ jQuery(function($){
 
 		list: function(){
 			socket.on('all', function(data){
-				$('#wishes').html('');
-				for(var i = 0; i< data.length; i++){
+				for(var i = 0; i < data.length; i++){
 					$('#wishes').append('<li id="' + data[i]._id + '">' + data[i].message +  '</li>');
 				}
 			});
