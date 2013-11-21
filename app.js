@@ -9,7 +9,7 @@ var express = require('express')
   , path = require('path')
   , mongoose = require('mongoose')
   , io = require('socket.io')
-  , db = mongoose.connect('mongodb://localhost/chrismtas')
+  , db = mongoose.connect('mongodb://localhost/christmas')
   , Schema = mongoose.Schema
   , ObjectID = Schema.ObjectId
   , Wish = require('./models/wish.js').init(Schema, mongoose);
@@ -50,8 +50,28 @@ sio.configure(function (){
 });
 
 sio.sockets.on('connection', function (socket) {
+  
+  Wish.find({}, function(err, wishes){
+   socket.emit('all', wishes);
+  });
 
-//disconnect state
+  socket.on('add', function(data){
+     var wish = new Wish({
+      name: data.title,
+      message: data.message,
+      email: data.email
+    });
+
+    console.log(wish);
+
+    wish.save(function(err){
+      if(err) throw err;
+      socket.emit('added', wish);
+      socket.broadcast.emit('added', wish);
+    });
+  });
+
+  //disconnect state
   socket.on('disconnect', function(){
   });
 
