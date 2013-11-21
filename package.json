@@ -1,5 +1,5 @@
 {
-  "name": "todo",
+  "name": "christmas",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "express": "3.0.0rc4",
+    "ejs": "1.0.0",
     "jade": "*",
     "mongoose": "*",
     "socket.io": "*"
-
   }
 }
