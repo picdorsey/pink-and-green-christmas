@@ -9,6 +9,9 @@
 </form>
 
 <ul id="wishes">
+    <% for(var i = 0; i < wishes.length; i++) {%>
+       <li id="<%= wishes[i]._id %>"><%= wishes[i].message %></li>
+    <% } %>
 </ul>
 
 <% include includes/footer.html %>

@@ -1,19 +1,8 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
-  , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , mongoose = require('mongoose')
-  , io = require('socket.io')
-  , db = mongoose.connect('mongodb://localhost/christmas')
-  , Schema = mongoose.Schema
-  , ObjectID = Schema.ObjectId
-  , Wish = require('./models/wish.js').init(Schema, mongoose);
-
+  , Wish = require('./models/wish.js').Wish
+  , io = require('socket.io');
 
 var app = express();
 
@@ -31,7 +20,11 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler());
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+});
+
+app.configure('production', function(){
+  app.use(express.errorHandler()); 
 });
 
 var server = http.createServer(app).listen(app.get('port'), function(){
@@ -40,42 +33,49 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 
 
 var sio = io.listen(server);
+var wish = new Wish('localhost', 27017);
 
-//Configure the socket.io connection settings.
+exports.wish = Wish;
+
+// Sockets
 sio.configure(function (){
   sio.set('log level', 0);
   sio.set('authorization', function (handshakeData, callback) {
-   callback(null, true); // error first callback style
+   callback(null, true);
   });
 });
 
 sio.sockets.on('connection', function (socket) {
   
-  Wish.find({}, function(err, wishes){
-   socket.emit('all', wishes);
-  });
-
   socket.on('add', function(data){
-     var wish = new Wish({
-      name: data.title,
+    var wishy = ({
+      name: data.name,
       message: data.message,
       email: data.email
     });
 
-    console.log(wish);
-
-    wish.save(function(err){
+    wish.save(wishy, function(err){
       if(err) throw err;
-      socket.emit('added', wish);
-      socket.broadcast.emit('added', wish);
+      socket.emit('added', wishy);
+      socket.broadcast.emit('added', wishy);
     });
   });
 
-  //disconnect state
   socket.on('disconnect', function(){
   });
 
 });
 
-//Our index page
-app.get('/', routes.index);
+// routes
+app.get('/', function(req, res){
+    wish.findAll( function(error,docs){
+      res.render(
+        'home', 
+        { 
+          title: 'Blog',
+          wishes: docs
+        }
+      );
+    })
+});
+
