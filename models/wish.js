@@ -4,7 +4,7 @@ function init(Schema, mongoose){
 		name: String,
 		message: String,
         email: String,
-        created: new Date()
+        created: Number
 	});
 
 	return mongoose.model('Wish', TheSchema);
