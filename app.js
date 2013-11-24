@@ -5,7 +5,7 @@ var express = require('express')
   , mongoose = require('mongoose')
   , Schema = mongoose.Schema
   , ObjectID = Schema.ObjectId
-  , Wish = require('./models/wish.js').init(Schema, mongoose);
+  , Wish = require('./models/wish.js').init(Schema, mongoose)
   , app = express();
 
 app.configure(function(){
