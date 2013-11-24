@@ -44,16 +44,18 @@ sio.configure(function (){
 sio.sockets.on('connection', function (socket) {
   
   socket.on('add', function(data){
-    var wishy = ({
+    var wish = new Wish({
       name: data.name,
       message: data.message,
       email: data.email
     });
 
-    wish.save(wishy, function(err){
+    console.log(wish);
+
+    wish.save(function(err){
       if(err) throw err;
-      socket.emit('added', wishy);
-      socket.broadcast.emit('added', wishy);
+      socket.emit('added', wish);
+      socket.broadcast.emit('added', wish);
     });
   });
 
