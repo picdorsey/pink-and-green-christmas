@@ -20,7 +20,6 @@ app.configure(function(){
   app.use(app.router);
   app.use('/assets', express.static(path.join(__dirname, 'public')));
 });
-
 // connect to DB
 mongoose.connect('mongodb://localhost/christmas', function(err) {
     if (err) throw err;
@@ -44,18 +43,16 @@ sio.configure(function (){
 sio.sockets.on('connection', function (socket) {
   
   socket.on('add', function(data){
-     var wish = new Wish({
-      name: data.title,
+    var wishy = ({
+      name: data.name,
       message: data.message,
       email: data.email
     });
 
-    console.log(wish);
-
-    wish.save(function(err){
+    wish.save(wishy, function(err){
       if(err) throw err;
-      socket.emit('added', wish);
-      socket.broadcast.emit('added', wish);
+      socket.emit('added', wishy);
+      socket.broadcast.emit('added', wishy);
     });
   });
 
