@@ -1,21 +1,12 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
-  , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , mongoose = require('mongoose')
   , io = require('socket.io')
-  , db = mongoose.connect('mongodb://localhost/christmas')
+  , mongoose = require('mongoose')
   , Schema = mongoose.Schema
   , ObjectID = Schema.ObjectId
   , Wish = require('./models/wish.js').init(Schema, mongoose);
-
-
-var app = express();
+  , app = express();
 
 app.configure(function(){
   app.engine('.html', require('ejs').__express);
@@ -30,31 +21,28 @@ app.configure(function(){
   app.use('/assets', express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler());
+// connect to DB
+mongoose.connect('mongodb://localhost/christmas', function(err) {
+    if (err) throw err;
 });
 
+// start server
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-
 var sio = io.listen(server);
 
-//Configure the socket.io connection settings.
+// sockets
 sio.configure(function (){
   sio.set('log level', 0);
   sio.set('authorization', function (handshakeData, callback) {
-   callback(null, true); // error first callback style
+   callback(null, true);
   });
 });
 
 sio.sockets.on('connection', function (socket) {
   
-  Wish.find({}, function(err, wishes){
-   socket.emit('all', wishes);
-  });
-
   socket.on('add', function(data){
      var wish = new Wish({
       name: data.title,
@@ -71,11 +59,20 @@ sio.sockets.on('connection', function (socket) {
     });
   });
 
-  //disconnect state
   socket.on('disconnect', function(){
   });
 
 });
 
-//Our index page
-app.get('/', routes.index);
+// routes
+app.get('/', function(req, res){
+  Wish.find({}, function(err, wishes){
+      res.render(
+        'home', 
+        { 
+          title: '(ALPHA)Picdorsey Christmas',
+          wishes: wishes
+        }
+      );
+    })
+});
