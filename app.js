@@ -20,6 +20,7 @@ app.configure(function(){
   app.use(app.router);
   app.use('/assets', express.static(path.join(__dirname, 'public')));
 });
+
 // connect to DB
 mongoose.connect('mongodb://localhost/christmas', function(err) {
     if (err) throw err;
