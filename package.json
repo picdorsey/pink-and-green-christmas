@@ -8,7 +8,10 @@
   "dependencies": {
     "express": "3.0.0rc4",
     "ejs": "0.8.4",
-    "mongoose": "*",
-    "socket.io": "*"
+    "mongoose": "latest",
+    "socket.io": "latest",
+    "bcrypt-nodejs": "latest",
+    "passport": "latest",
+    "passport-local": "latest"
   }
 }
