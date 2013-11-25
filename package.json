@@ -12,6 +12,7 @@
     "socket.io": "latest",
     "bcrypt-nodejs": "latest",
     "passport": "latest",
-    "passport-local": "latest"
+    "passport-local": "latest",
+    "passport-local-mongoose": "latest"
   }
 }
