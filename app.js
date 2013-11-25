@@ -11,7 +11,7 @@ var express = require('express'),
 
 var app = express();
 
-// Configuration
+// configuration
 app.configure(function(){
   app.engine('.html', require('ejs').__express);
   app.set('port', process.env.PORT || 3000);
@@ -33,13 +33,13 @@ mongoose.connect('mongodb://localhost/christmas', function(err) {
     if (err) throw err;
 });
 
-// Configure passport
+// configure passport
 passport.use(new LocalStrategy(Account.authenticate()));
 
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-// start server
+// start the server
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
@@ -47,5 +47,5 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 // sockets
 var sio = require('./lib/sockets').listen(server);
 
-// Routes
+// routes
 require('./lib/routes')(app);
