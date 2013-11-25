@@ -1,12 +1,13 @@
-function init(Schema, mongoose){
-	var TheSchema = new Schema({
-		name: String,
-		message: String,
-        email: String,
-        created: { type: Date, default: Date.now },
-	});
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    passportLocalMongoose = require('passport-local-mongoose');
 
-	return mongoose.model('Wish', TheSchema);
-}
+var Wish = new Schema({
+    name: String,
+    message: String,
+    email: String,
+    created: { type: Date, default: Date.now },
+});
 
-module.exports.init = init;
+
+module.exports = mongoose.model('Wish', Wish);
