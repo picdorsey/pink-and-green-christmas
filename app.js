@@ -17,6 +17,7 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'html');
+  app.use(express.compress());
   app.use(express.cookieParser());
   app.use(express.session({ secret: 'thisismysupersecret' }));
   app.use(passport.initialize());
@@ -25,7 +26,6 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.compress());
   app.use('/assets', express.static(path.join(__dirname, 'public')));
 });
 
