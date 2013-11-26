@@ -4,6 +4,7 @@
 
 ## Installation
 (Make sure you have mongoose running):
-* `C:\mongodb\bin\mongod.exe`
+> Windows
+> `C:\mongodb\bin\mongod.exe`
 * `npm install`
-* `npm start`
+* `node app.js`
