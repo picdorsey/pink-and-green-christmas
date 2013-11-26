@@ -25,6 +25,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
+  app.use(express.compress());
   app.use('/assets', express.static(path.join(__dirname, 'public')));
 });
 
@@ -45,7 +46,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 });
 
 // sockets
-var sio = require('./lib/sockets').listen(server);
+require('./lib/sockets').listen(server);
 
 // routes
 require('./lib/routes')(app);

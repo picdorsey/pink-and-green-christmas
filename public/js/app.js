@@ -1,8 +1,10 @@
 jQuery(function($){
 	"use strict";
 
-	//client side socket.io
+	// client side socket.io
 	var socket = io.connect();
+	
+	// application client-side
 	var app = {
 		
 		init: function(){
@@ -11,7 +13,6 @@ jQuery(function($){
 		},
 
 		persist: function(new_wish){
-			
 			socket.emit('add', new_wish);
 		},
 
@@ -20,12 +21,12 @@ jQuery(function($){
 				if(!$('#wish-form #message').val()){
 					return false;
 				}
+
 				var new_wish = {
 					name: $('#name').val(),
 					message: $('#message').val(),
 					email: $('#email').val(),
 				}
-				console.log(new_wish);
 
 				// clear values
 				$('#name').val('');
