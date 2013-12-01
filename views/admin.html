@@ -1,0 +1,18 @@
+<% include includes/header.html %>
+
+<h1>Admin area</h1>
+
+<%  if(wishes.length == 0) { %>
+        <p>No wishes</p>
+<%  } 
+    else { %>
+        <ul id="wishes">
+            <% for(var i = 0; i < wishes.length; i++) {%>
+                <li id="<%= wishes[i]._id %>"><%= wishes[i].message %></li>
+            <% } %>
+        </ul>
+<% } %>
+
+<a href="/logout">Logout</a>
+
+<% include includes/footer.html %>

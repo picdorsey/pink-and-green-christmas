@@ -1,4 +1,7 @@
-<form action="/login" method="post">
+<% if ( message != "" ) { %>
+    <div class="flash"><%= message %></div>
+<% } %>
+<form action="" method="post">
     <div>
         <label>Username:</label>
         <input type="text" name="username"/>
