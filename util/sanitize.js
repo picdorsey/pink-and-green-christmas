@@ -4,7 +4,6 @@ var check = require('validator').check,
 module.exports = function (str) {
   
   var str = sanitize(str).escape();
-  sanitized = sanitize(str).entityEncode();
-
-  return sanitized;
+  
+  return str;
 };
