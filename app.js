@@ -18,17 +18,25 @@ app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'html');
+    app.use(express.logger('dev'));
     app.use(express.compress());
     app.use(express.cookieParser());
     app.use(express.session({ secret: 'thisismysupersecret' }));
     app.use(flash());
-    app.use(passport.initialize());
-    app.use(passport.session());
-    app.use(express.favicon());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(passport.initialize());
+    app.use(passport.session());
     app.use(app.router);
     app.use('/assets', express.static(path.join(__dirname, 'public')));
+});
+
+app.configure('development', function(){
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+app.configure('production', function(){
+    app.use(express.errorHandler());
 });
 
 // connect to DB
@@ -44,7 +52,7 @@ passport.deserializeUser(Account.deserializeUser());
 
 // start the server
 var server = http.createServer(app).listen(app.get('port'), function(){
-    console.log("Express server listening on port " + app.get('port'));
+    console.log("Express server listening on port " + app.get('port') + " in " + app.settings.env + " mode");
 });
 
 // sockets
