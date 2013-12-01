@@ -1,0 +1,20 @@
+/*
+ * Picdorsey Christmas
+ * Main Stylesheet
+*/
+
+
+ /* Typography ------------------------------------------------------ */
+
+ /* Misc Styles ----------------------------------------------------- */
+
+.well-wrapper {
+    padding: 25px;
+    border-width: 1px;
+    border: #DDD 1px solid;
+    box-shadow: none;
+}
+
+td.row-message {
+    max-width: 400px;
+}
