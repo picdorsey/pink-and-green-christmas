@@ -41,7 +41,7 @@
 <%  } 
     else { %>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="wish-table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -61,10 +61,10 @@
                             <td><%= wishes[i].ip %></td>
                             <td class="row-message"><%= wishes[i].message %></td>
                             <td>
-                                <a type="button" class="btn btn-default" data-id="<%= wishes[i]._id%>">
+                                <a type="button" class="btn btn-default" title="edit" data-id="<%= wishes[i]._id%>">
                                     <span class="glyphicon glyphicon-edit"></span>
                                 </a>
-                                <a type="button" class="btn btn-default" data-id="<%= wishes[i]._id%>">
+                                <a type="button" class="btn btn-default remove-wish" title="delete" data-id="<%= wishes[i]._id%>">
                                     <span class="glyphicon glyphicon-remove"></span>
                                 </a>
                             </td>
@@ -75,4 +75,4 @@
         </div>
 <%  } %>
 
-<% include ../includes/footer.html %>
+<% include ../includes/admin-footer.html %>

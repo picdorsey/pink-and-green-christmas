@@ -4,9 +4,9 @@
 */
 
 
- /* Typography ------------------------------------------------------ */
+ /* Typography */
 
- /* Misc Styles ----------------------------------------------------- */
+ /* Misc Styles */
 
 .well-wrapper {
     padding: 25px;
@@ -15,6 +15,17 @@
     box-shadow: none;
 }
 
-td.row-message {
+#wish-table td.row-message {
     max-width: 400px;
+}
+
+#wish-table tr {
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+#wish-table tr.deleted {
+    background-color: #F5F5F5;
+    color: #A9A9A9;
+    text-decoration: line-through;
 }
