@@ -6,6 +6,7 @@ var Wish = new Schema({
     message: String,
     email: String,
     ip: String,
+    visible: { type: Boolean, default: true},
     created: { type: Date, default: Date.now },
 });
 

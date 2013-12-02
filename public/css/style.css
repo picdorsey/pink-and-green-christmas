@@ -22,6 +22,7 @@
 #wish-table tr {
     -webkit-transition: color 0.4s;
     transition: color 0.4s;
+    word-wrap: break-word;
 }
 
 #wish-table tr.deleted {

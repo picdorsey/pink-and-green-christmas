@@ -9,8 +9,11 @@
 </form>
 
 <ul id="wishes">
-    <% for(var i = 0; i < wishes.length; i++) {%>
-       <li id="<%= wishes[i]._id %>"><%= wishes[i].message %></li>
+    <% for(var i = 0; i < wishes.length; i++) {
+       if(wishes[i].visible) { %>
+            <li id="<%= wishes[i]._id %>"><%= wishes[i].message %></li>
+    <%  } %>
+ 
     <% } %>
 </ul>
 
