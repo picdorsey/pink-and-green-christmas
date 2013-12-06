@@ -46,7 +46,7 @@ jQuery(function($){
 		},
 
 		addToList: function(new_wish){
-			$('#wishes').append('<li id="' + new_wish._id + '">' + new_wish.message +  '</li>');
+			$('#bulbs').append('<li id="' + new_wish._id + '" class="bulb"><span></span></li>');
 		},
 		
 	};

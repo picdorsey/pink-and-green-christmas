@@ -1,20 +1,36 @@
 <% include includes/header %>
 
-<form action="" id="wish-form">
-    <h1>What is your wish?</h1>
-    <input type="text" name="name" id="name" placeholder="Name">
-    <input type="text" name="message" id="message" placeholder="Message">
-    <input type="text" name="email" id="email" placeholder="Email">
-    <input type="submit">
-</form>
+        <header id="header">
+            <div class="container">
+                <a href="http://picdorsey.com"><img id="logo-small" class="animated bounceInUp" src="https://picdorsey.com/crucial/img/pd_logo.png" width="30" height="30" alt="Piccirilli Dorsey"></a>
+                <p><a id="see-more">Add your wish to our christmas tree.</a></p>
+            </div>
+            <form id="wish-form">
+                <ul>
+                    <li><input type="text" name="name" id="name" class="txt-large" placeholder="Name"></li>
+                    <li><input type="text" name="email" id="email" class="txt-large" placeholder="Email"></li>
+                    <li><input type="text" name="message" id="message" class="txt-large" placeholder="What I wish for Christmas..."></li>
+                    <li><input type="submit" class="btn-large" value="Submit!"></li>
+                </ul>
+            </form>
+        </header>
 
-<ul id="wishes">
-    <% for(var i = 0; i < wishes.length; i++) {
-       if(wishes[i].visible) { %>
-            <li id="<%= wishes[i]._id %>"><%= wishes[i].message %></li>
-    <%  } %>
- 
-    <% } %>
-</ul>
-
+        <div id="content" role="main" class="container">
+                <div id="star"></div>
+            <div id="tree-container">
+                <div id="tree-top"></div>
+                <div id="tree-body"></div>
+                <div id="tree-bottom"></div>
+                
+                <ul id="bulbs">
+                    <% for(var i = 0; i < wishes.length; i++) {
+                       if(wishes[i].visible) { %>
+                            <li id="<%= wishes[i]._id %>" class="bulb"><span></span></li>
+                    <%  } %>
+                 
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        
 <% include includes/footer %>
