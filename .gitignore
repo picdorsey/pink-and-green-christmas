@@ -13,3 +13,8 @@ results
 
 npm-debug.log
 node_modules
+
+.gitconfig
+.bash_history
+.bashrc
+_viminfo
