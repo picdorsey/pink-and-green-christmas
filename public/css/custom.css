@@ -12,6 +12,14 @@
 
 /* Custom Styles ------------------------------------------------ */
 
+@font-face{
+    font-family:'arvobold';
+    src:url("fonts/arvo-bold-webfont.eot");
+    src:url("fonts/arvo-bold-webfont.eot?#iefix") format("embedded-opentype"),url("fonts/arvo-bold-webfont.woff") format("woff"),url("fonts/arvo-bold-webfont.ttf") format("truetype"),url("fonts/arvo-bold-webfont.svg#arvobold") format("svg");
+    font-weight:normal;
+    font-style:normal
+}
+
 body, #body {
     background: #e9eae5;
     color: #3a3a3a;
@@ -75,6 +83,14 @@ header, #header {
 }
 
 a#see-more{
+    
+    font-family: 'arvobold';
+    letter-spacing: 8px;
+    font-size: 1em;
+    text-shadow: 1px 2px 0 #912323, 2px 3px 0 #fff;
+    color: #db4f4f;
+    text-transform: uppercase;
+        
     cursor: pointer;
     color: #e85c41;
     -webkit-transition: all 0.3s ease-in-out;
