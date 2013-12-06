@@ -1,0 +1,16 @@
+<% include includes/header %>
+
+<% if(wish != null && wish.visible) { %>
+
+        <h2><%= wish.name %></h2>
+        <p><%= wish.message %></p>
+
+<% } 
+else {
+%>
+
+    <p>Wish not found</p>
+
+<% } %>
+
+<% include includes/footer %>
