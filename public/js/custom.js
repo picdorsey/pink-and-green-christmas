@@ -78,7 +78,7 @@ function newBulbAdded()
     
     $newBulb = $('.bulb').last(); // isolates most recent bulb added
     
-    $newBulb.bulbify();
+    $newBulb.bulbify(i);
     
     i++;
 }
