@@ -42,7 +42,7 @@ $(document).ready(function () {
     
     $('#wish-submit').click(function(e) {
         e.preventDefault();
-        $('#wish-form').slideToggle('fast', function() {
+        $('#wish-form').slideUp('fast', function() {
             //change direction of arrow
         });
         
