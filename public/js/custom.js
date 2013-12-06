@@ -62,6 +62,11 @@ $(document).ready(function () {
                 easing: 'ease-in-out',
             }
         });
+
+        // ajax to server and get wish content
+        $.get( "wish/" + $(this).parent().attr("id"), function( data ) {
+            $("#bulb-popup").html(data);
+        });
     });
     
     $("#wish-submit").click(function(e) {
@@ -94,7 +99,6 @@ function getRandom()
     if (e == 0 ) return Math.floor((Math.random() * spreadOffset + spreadOffset )); // Positive
     else if (e == 1) return Math.floor((Math.random() * (spreadOffset * -1) - spreadOffset )); // Negative
     else return 0;
-    
 }
 
 
