@@ -23,7 +23,7 @@ $(document).ready(function () {
         $(this).removeClass('animated bounceIn'); 
     });
     
-    $('.bulb span').on( "click", function() {
+    $('#bulbs').on( "click", ".bulb span", function() {
         
         $.magnificPopup.open({
             items: {
