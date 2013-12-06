@@ -23,7 +23,7 @@ $(document).ready(function () {
         $(this).removeClass('animated bounceIn'); 
     });
     
-    $('.bulb span').live( "click", function() {
+    $('.bulb span').on( "click", function() {
         
         $.magnificPopup.open({
             items: {
@@ -37,15 +37,16 @@ $(document).ready(function () {
                 easing: 'ease-in-out',
             }
         });
+        
     });
     
     $('#wish-submit').click(function(e) {
-        
+        e.preventDefault();
         $('#wish-form').slideToggle('fast', function() {
             //change direction of arrow
         });
         
-        //$('body').scrollTo($('.bulb').last()); // Scroll Screen to new bulb just added
+        $('body').scrollTo($('.bulb').last()); // Scroll Screen to new bulb just added
         
         // Scroll Browser to new li just added
         
