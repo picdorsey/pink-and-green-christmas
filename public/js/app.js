@@ -43,6 +43,7 @@ jQuery(function($){
 			 socket.on('added', function(data){
 			 	app.addToList(data);
 			 	newBulbAdded();
+			 	navigateTo();
 			 });
 		},
 
