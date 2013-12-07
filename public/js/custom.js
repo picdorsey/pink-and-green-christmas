@@ -23,7 +23,7 @@ $(document).ready(function () {
         $(this).removeClass('animated bounceIn'); 
     });
     
-    $('.bulb span').click(function() {
+    $('#bulbs').on( "click", ".bulb span", function() {
         
         $.magnificPopup.open({
             items: {
@@ -37,14 +37,16 @@ $(document).ready(function () {
                 easing: 'ease-in-out',
             }
         });
+        
     });
     
     $('#wish-submit').click(function(e) {
-        
         e.preventDefault();
-        $('#wish-form').slideToggle('fast', function() {
+        $('#wish-form').slideUp('fast', function() {
             //change direction of arrow
         });
+        
+        $('body').scrollTo($('.bulb').last()); // Scroll Screen to new bulb just added
         
         // Scroll Browser to new li just added
         
@@ -75,11 +77,8 @@ function getRandom()
 function newBulbAdded()
 {
     reSizeTree(); // check if more tree-body is needed
-    
     $newBulb = $('.bulb').last(); // isolates most recent bulb added
-    
     $newBulb.bulbify(i);
-    
     i++;
 }
 
