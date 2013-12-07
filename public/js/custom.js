@@ -24,7 +24,8 @@ $(document).ready(function () {
 
     $('#bulbs').on("click", ".bulb span", function () {
         var $this = $(this);
-        
+
+        // ajax to server and append content to modal
         getContent($this.parent().attr('id'), function(output){
             console.log(output);
             $.magnificPopup.open({
@@ -40,11 +41,6 @@ $(document).ready(function () {
                 }
             });
         });
-
-        // ajax to server and get wish content
-/*        $.get('wish/' + $(this).parent().attr('id'), function (data) {
-            $('#bulb-popup').html(data);
-        });*/
 
     });
 
