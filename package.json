@@ -15,6 +15,7 @@
     "passport-local": "latest",
     "passport-local-mongoose": "latest",
     "validator": "latest",
-    "connect-flash": "latest"
+    "connect-flash": "latest",
+    "connect-mongostore": "latest"
   }
 }

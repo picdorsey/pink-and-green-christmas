@@ -3,6 +3,7 @@ var express = require('express'),
     path = require('path'),
     io = require('socket.io'),
     mongoose = require('mongoose'),
+    MongoStore = require('connect-mongostore')(express),
     passport = require('passport'),
     flash = require('connect-flash'),
     LocalStrategy = require('passport-local').Strategy,
@@ -18,10 +19,13 @@ app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'html');
-    app.use(express.logger('dev'));
+    //app.use(express.logger('dev'));
     app.use(express.compress());
     app.use(express.cookieParser());
-    app.use(express.session({ secret: 'thisismysupersecret' }));
+        app.use(express.session({
+        secret: 'my secret',
+        store: new MongoStore({'db': 'sessions'})
+      }));
     app.use(flash());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
