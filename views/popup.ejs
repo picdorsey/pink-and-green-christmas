@@ -1,12 +1,10 @@
-<% if(wish != null && wish.visible) { %>
-
-        <h2><%= wish.name %></h2>
-        <p><%= wish.message %></p>
-
-<% } 
-else {
-%>
-
-    <p>Wish not found</p>
-
-<% } %>
+<div class="wish-content">
+    <% if(wish != null && wish.visible) { %>
+            <h2><%= wish.name %></h2>
+            <p><%= wish.message %></p>
+    <% } 
+    else {
+    %>
+        <p>Wish not found</p>
+    <% } %>
+</div>
