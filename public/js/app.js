@@ -34,7 +34,7 @@ jQuery(function($){
 				$('#email').val('');
 
 				app.persist(new_wish);
-
+				navigateTo();
 				return false;
 			}); 
 		},
@@ -43,7 +43,6 @@ jQuery(function($){
 			 socket.on('added', function(data){
 			 	app.addToList(data);
 			 	newBulbAdded();
-			 	navigateTo();
 			 });
 		},
 
