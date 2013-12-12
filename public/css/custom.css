@@ -32,11 +32,6 @@ body, #body {
     -moz-animation: snow 20s linear infinite;
     -ms-animation: snow 20s linear infinite;
     animation: snow 20s linear infinite;
-    -webkit-transform: translatez(0);
-    -moz-transform: translatez(0);
-    -ms-transform: translatez(0);
-    -o-transform: translatez(0);
-    transform: translatez(0);
 }
 
 .container {
@@ -384,4 +379,12 @@ a#see-more:hover {
     width: 500px;
     height: 581px;
     margin: 0px auto;
+}
+
+#bulb-popup .wish-content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
