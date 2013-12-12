@@ -259,7 +259,7 @@ a#see-more:hover {
 }
 
 #bulbs {
-    opacity:0.4;
+    opacity:0.0;
     filter:alpha(opacity=0);
     position: absolute;
     top: 0;

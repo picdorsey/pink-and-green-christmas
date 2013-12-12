@@ -6,6 +6,11 @@ $(document).ready(function () {
 
     reSizeTree();
 
+    // Prevents bulbs from being seen until they're posistioned
+    $("#bulbs").css({"opacity" : "1.0",
+                     "filter" : "alpha(opacity=100)"
+                    });
+    
     $('#see-more').click(function (e) {
         e.preventDefault();
         $('#wish-form').slideToggle('fast', function () {
@@ -30,7 +35,7 @@ $(document).ready(function () {
             console.log(output);
             $.magnificPopup.open({
                 items: {
-                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-position: ' + ($this.css('background-position').split('px ')[0] * 5 + 5) + 'px' + '">' + output + '</div>',
+                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-position: ' + ($this.css('background-position').split('px ')[0] * 5 + 30) + 'px' + '">' + output + '</div>',
                     type: 'inline',
                 },
                 mainClass: 'mfp-with-zoom',
@@ -99,7 +104,7 @@ jQuery.fn.bulbify = function (index) {
     });
     $ele.addClass('sway');
 
-    $bulb.css('background-position', Math.floor((Math.random() * 12)) * 100);
+    $bulb.css('background-position', Math.floor((Math.random() * 12)) * 100 + 5);
     $bulb.addClass('animated bounceIn');
     $bulb.css({
         '-webkit-animation-duration': '.5s',
