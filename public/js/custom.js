@@ -35,7 +35,7 @@ $(document).ready(function () {
             console.log(output);
             $.magnificPopup.open({
                 items: {
-                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-position: ' + ($this.css('background-position').split('px ')[0] * 5) + 'px' + '">' + output + '</div>',
+                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-position: ' + ( 1200 / $this.css('background-position').split('px ')[0] * 445) + 'px' + '">' + output + '</div>',
                     type: 'inline',
                 },
                 mainClass: 'mfp-with-zoom',
@@ -104,7 +104,7 @@ jQuery.fn.bulbify = function (index) {
     });
     $ele.addClass('sway');
 
-    $bulb.css('background-position', Math.floor((Math.random() * 12)) * 100 + 5);
+    $bulb.css('background-position', Math.floor((Math.random() * 12)) * 100);
     $bulb.addClass('animated bounceIn');
     $bulb.css({
         '-webkit-animation-duration': '.5s',
@@ -128,20 +128,25 @@ jQuery.fn.scaleRotate = function (offset, degrees) {
 };
 
 // scrollTo Plugin
-$.fn.scrollTo = function( target, options, callback ){
-  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
-  var settings = $.extend({
-    scrollTarget  : target,
-    offsetTop     : 400,
-    duration      : 500,
-    easing        : 'swing'
-  }, options);
-  return this.each(function(){
-    var scrollPane = $(this);
-    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
-    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
-    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
-      if (typeof callback == 'function') { callback.call(this); }
+$.fn.scrollTo = function( target, options, callback ) {
+    if(typeof options == 'function' && arguments.length == 2) {
+        callback = options;
+        options = target;
+    }
+    var settings = $.extend({
+        scrollTarget  : target,
+        offsetTop     : 400,
+        duration      : 500,
+        easing        : 'swing'
+    }, options);
+    return this.each(function() {
+        var scrollPane = $(this);
+        var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+        var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() -               parseInt(settings.offsetTop);
+        scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function() {
+            if (typeof callback == 'function') {
+                callback.call(this);
+            }
+        });
     });
-  });
 }
