@@ -17,7 +17,7 @@
 
         <div id="content" role="main" class="container">
                 <div id="star"></div>
-            <div id="tree-container">
+                <div id="tree-container">
                 <div id="tree-top"></div>
                 <div id="tree-body"></div>
                 <div id="tree-bottom"></div>
@@ -25,7 +25,7 @@
                 <ul id="bulbs">
                     <% for(var i = 0; i < wishes.length; i++) {
                        if(wishes[i].visible) { %>
-                            <li id="<%= wishes[i]._id %>" class="bulb"><span class="ornament"><span class="gravatar img-circle" style="background-image: url(" + '' + ")"></span></span></li>
+                            <li id="<%= wishes[i]._id %>" class="bulb"><span class="ornament"><span class="gravatar img-circle" style="background-image: url(<%=wishes[i].gravatar%>)"></span></span></li>
                     <%  } %>
                     <% } %>
                 </ul>
