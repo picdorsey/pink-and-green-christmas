@@ -63,11 +63,14 @@ h1 {
 
 h2 {
     font-size: 2em;
-    margin-bottom: 30px;
+    margin-bottom: 0 auto 30px auto;
+    width: 280px;
 }
 
 p {
     font-size: 1.3em;
+    width: 280px;
+    margin: 0 auto;
     line-height: 1.5;
     
 }
