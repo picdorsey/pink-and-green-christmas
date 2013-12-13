@@ -106,7 +106,6 @@ jQuery.fn.bulbify = function (index) {
     $ele.addClass('sway');
 
     $bulb.css('background-image', 'url(../imgs/bulbs-small/' + (Math.floor((Math.random() * 11)) + 1) + '.png)');
-    $bulb.css('background-position',  * 100);
     $bulb.addClass('animated bounceIn');
     $bulb.css({
         '-webkit-animation-duration': '.5s',
