@@ -1,5 +1,4 @@
 <% include includes/header %>
-<% include util/md5.js %>
 
         <header id="header">
             <div class="container">
@@ -26,7 +25,7 @@
                 <ul id="bulbs">
                     <% for(var i = 0; i < wishes.length; i++) {
                        if(wishes[i].visible) { %>
-                            <li id="<%= wishes[i]._id %>" class="bulb"><span class="ornament"><span class="gravatar img-circle" data-grav="<%= md5(wishes[i].email) %>")></span></span></li>
+                            <li id="<%= wishes[i]._id %>" class="bulb"><span class="ornament"><span class="gravatar img-circle" data-grav="")></span></span></li>
                     <%  } %>
                     <% } %>
                 </ul>
