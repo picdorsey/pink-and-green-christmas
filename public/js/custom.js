@@ -116,9 +116,6 @@ jQuery.fn.bulbify = function (index) {
         '-moz-animation-delay': 2.5 * Math.pow(.95, index) + 's',
         '-ms-animation-delay': 2.5 * Math.pow(.95, index) + 's'
     });
-    
-    
-    $gravatar.css('background-image', 'url(http://www.gravatar.com/avatar/' + $gravatar.data('grav') + ')');
 
     if (index == 1 || index == 3 || index == 6 || index == 10 || (index > 10 && index % 5 == 0)) $(this).after('<br>');
 };

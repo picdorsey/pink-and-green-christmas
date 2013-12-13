@@ -47,7 +47,7 @@ jQuery(function($){
 		},
 
 		addToList: function(new_wish){
-			$('#bulbs').append('<li id="' + new_wish._id + '" class="bulb"><span class="ornament"><span class="gravatar img-circle" data-grav=""');
+			$('#bulbs').append('<li id="' + new_wish._id + '" class="bulb"><span class="ornament"><span class="gravatar img-circle" style="background-image: url(' + '' + ')"';
 		},
 		
 	};
