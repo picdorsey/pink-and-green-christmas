@@ -2,7 +2,8 @@
  * Custom JS
  */
 var i = 1;
-0
+
+$(document).ready(function () {
 
     reSizeTree();
 
