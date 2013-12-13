@@ -36,7 +36,7 @@ $(document).ready(function () {
 
             $.magnificPopup.open({
                 items: {
-                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-image: url(' + img + ')">' + output + '</div>',
+                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-image:' + img + ')">' + output + '</div>',
                     type: 'inline',
                 },
                 mainClass: 'mfp-with-zoom',
