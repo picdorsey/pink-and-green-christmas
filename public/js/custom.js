@@ -30,10 +30,10 @@ $(document).ready(function () {
 
     $('#bulbs').on("click", ".bulb span", function () {
         var $this = $(this);
-
+        var img = ($this.css('background-image')).replace('bulbs-small', 'bulbs-large');
         // ajax to server and append content to modal
         getContent($this.parent().attr('id'), function(output){
-            var img = $(this).css('background-image').replace('bulbs-small', 'bulbs-large');
+
             $.magnificPopup.open({
                 items: {
                     src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-image: url(' + img + ')">' + output + '</div>',
