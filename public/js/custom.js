@@ -33,7 +33,7 @@ $(document).ready(function () {
 
         // ajax to server and append content to modal
         getContent($this.parent().attr('id'), function(output){
-            var img = '../imgs/bulbs-large/' + $(this).css('background-image').replace('../imgs/bulbs-small/', '');
+            var img = $(this).css('background-image').replace('bulbs-small', 'bulbs-large');
             $.magnificPopup.open({
                 items: {
                     src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-image: url(' + img + ')">' + output + '</div>',
@@ -105,7 +105,7 @@ jQuery.fn.bulbify = function (index) {
     });
     $ele.addClass('sway');
 
-    $bulb.css('background-image', 'url(../imgs/bulbs-small/' + (Math.floor((Math.random() * 11)) + 1) + '.png)');
+    $bulb.css('background-image', 'url(assets/imgs/bulbs-small/' + (Math.floor((Math.random() * 11)) + 1) + '.png)');
     $bulb.addClass('animated bounceIn');
     $bulb.css({
         '-webkit-animation-duration': '.5s',
