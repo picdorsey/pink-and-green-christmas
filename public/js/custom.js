@@ -93,7 +93,8 @@ function getContent(id, handleData) {
 
 jQuery.fn.bulbify = function (index) {
     $ele = $(this); // li
-    $bulb = $ele.children(':first'); // span
+    $bulb = $ele.children(':first'); // .ornament
+    $gravatar = $bulb.children(':first'); // .gravatar
 
     $ele.css('top', getRandom());
     $ele.css('left', getRandom());
@@ -115,6 +116,9 @@ jQuery.fn.bulbify = function (index) {
         '-moz-animation-delay': 2.5 * Math.pow(.95, index) + 's',
         '-ms-animation-delay': 2.5 * Math.pow(.95, index) + 's'
     });
+    
+    
+    $gravatar.css('background-image', 'url(http://www.gravatar.com/avatar/' + $gravatar.data('grav') + ')');
 
     if (index == 1 || index == 3 || index == 6 || index == 10 || (index > 10 && index % 5 == 0)) $(this).after('<br>');
 };

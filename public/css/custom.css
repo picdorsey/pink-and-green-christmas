@@ -61,6 +61,23 @@ h1 {
     line-height: 2;
 }
 
+h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 1.3em;
+    line-height: 1.5;
+    
+}
+
+.img-circle {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
 /* Header ---------------------------------------------------- */
 
 header, #header {
@@ -231,11 +248,11 @@ a#see-more:hover {
     overflow: visible;
 }
 
-.bulb span{
+.bulb .ornament{
     display: block;
     width: 90px;
     height: 116px;
-    
+    background-repeat: no-repeat;
     
     -webkit-transform: scale(1.0);
     -moz-transform: scale(1.0);
@@ -248,7 +265,17 @@ a#see-more:hover {
     transition: all 0.2s ease-in-out;
 }
 
-.bulb span:hover {
+.bulb .gravatar {
+    height: 70px;
+    width: 70px;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    top: 37px;
+    left: 10px;
+}
+
+.bulb .ornament:hover {
     -webkit-transform: scale(1.3);
     -moz-transform: scale(1.3);
     -ms-transform: scale(1.3);
@@ -380,6 +407,7 @@ a#see-more:hover {
     width: 447px;
     height: 581px;
     margin: 0px auto;
+    background-repeat: no-repeat;
 }
 
 #bulb-popup .wish-content {
