@@ -2,7 +2,7 @@
  * Custom JS
  */
 var i = 1;
-$(document).ready(function () {
+0
 
     reSizeTree();
 
@@ -32,10 +32,10 @@ $(document).ready(function () {
 
         // ajax to server and append content to modal
         getContent($this.parent().attr('id'), function(output){
-            console.log(output);
+            var img = '../imgs/bulbs-large/' + $(this).css('background-image').replace('../imgs/bulbs-small/', '');
             $.magnificPopup.open({
                 items: {
-                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-position: ' + ( (1200 /  ($this.css('background-position').split('px ')[0] + 1) ) * 505) + 'px' + '">' + output + '</div>',
+                    src: '<div id="bulb-popup" class="animated bounceIn fast" style="background-image: url(' + img + ')">' + output + '</div>',
                     type: 'inline',
                 },
                 mainClass: 'mfp-with-zoom',
@@ -104,7 +104,8 @@ jQuery.fn.bulbify = function (index) {
     });
     $ele.addClass('sway');
 
-    $bulb.css('background-position', Math.floor((Math.random() * 12)) * 100);
+    $bulb.css('background-image' : 'url(../imgs/bulbs-small/' + (Math.floor((Math.random() * 11)) + 1) + '.png)');
+    $bulb.css('background-position',  * 100);
     $bulb.addClass('animated bounceIn');
     $bulb.css({
         '-webkit-animation-duration': '.5s',

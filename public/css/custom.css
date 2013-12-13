@@ -233,9 +233,9 @@ a#see-more:hover {
 
 .bulb span{
     display: block;
-    background: url(../imgs/bulbs.png);
-    width: 100px;
+    width: 90px;
     height: 116px;
+    
     
     -webkit-transform: scale(1.0);
     -moz-transform: scale(1.0);
@@ -377,8 +377,7 @@ a#see-more:hover {
 #bulb-popup {
     position: relative;
     overflow: hidden;
-    background: url(../imgs/bulbs-large.png);
-    width: 505px;
+    width: 447px;
     height: 581px;
     margin: 0px auto;
 }
