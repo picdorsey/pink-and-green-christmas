@@ -28,7 +28,7 @@ $(document).ready(function () {
         $(this).removeClass('animated bounceIn');
     });
 
-    $('#bulbs').on("click", ".bulb span", function () {
+    $('#bulbs').on("click", ".bulb .ornament", function () {
         var $this = $(this);
         var img = ($this.css('background-image')).replace('bulbs-small', 'bulbs-large');
         // ajax to server and append content to modal
