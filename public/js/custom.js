@@ -73,7 +73,7 @@ function getRandom() {
 
 function newBulbAdded() {
     reSizeTree(); // check if more tree-body is needed
-    $newBulb = $('.bulb').last(); // isolates most recent bulb added
+    $newBulb = $('.bulb:first-child'); // isolates most recent bulb added
     $newBulb.bulbify(i);
     i++;
 }
