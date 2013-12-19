@@ -12,6 +12,7 @@ var express = require('express'),
     Account = require('./models/account');
 
 var app = express();
+var mongoUri = process.env.MONGOLAB_URI;
 
 // configuration
 app.configure(function(){
@@ -44,7 +45,7 @@ app.configure('production', function(){
 });
 
 // connect to DB
-mongoose.connect('mongodb://localhost/christmas', function(err) {
+mongoose.connect(mongoUri, function(err) {
     if (err) throw err;
 });
 
