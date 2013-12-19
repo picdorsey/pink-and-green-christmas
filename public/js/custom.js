@@ -130,7 +130,7 @@ jQuery.fn.scaleRotate = function (offset, degrees) {
 };
 
 // scrollTo Plugin
-$.fn.scrollTo = function( target, options, callback ) {
+/*$.fn.scrollTo = function( target, options, callback ) {
     if(typeof options == 'function' && arguments.length == 2) {
         callback = options;
         options = target;
@@ -151,4 +151,4 @@ $.fn.scrollTo = function( target, options, callback ) {
             }
         });
     });
-}
+}*/
