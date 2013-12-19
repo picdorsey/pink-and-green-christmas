@@ -82,7 +82,8 @@ function navigateTo() {
     $('#wish-form').slideUp('fast', function () {
     });
 
-    $('body').scrollTo($('.bulb').last());
+    if ($('.bulb').last().exists())
+        $('body').scrollTo($('.bulb').last());
 }
 
 function getContent(id, handleData) {
@@ -130,7 +131,7 @@ jQuery.fn.scaleRotate = function (offset, degrees) {
 };
 
 // scrollTo Plugin
-/*$.fn.scrollTo = function( target, options, callback ) {
+$.fn.scrollTo = function( target, options, callback ) {
     if(typeof options == 'function' && arguments.length == 2) {
         callback = options;
         options = target;
@@ -151,4 +152,4 @@ jQuery.fn.scaleRotate = function (offset, degrees) {
             }
         });
     });
-}*/
+}
