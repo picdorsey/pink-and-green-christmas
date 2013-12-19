@@ -82,8 +82,7 @@ function navigateTo() {
     $('#wish-form').slideUp('fast', function () {
     });
 
-    if (($('.bulb').last()).exists())
-        $('body').scrollTo($('.bulb').last());
+    $('body').scrollTo($('.bulb').last());
 }
 
 function getContent(id, handleData) {
