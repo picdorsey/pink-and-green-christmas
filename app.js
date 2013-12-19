@@ -24,6 +24,7 @@ app.configure(function(){
     //app.use(express.logger('dev'));
     app.use(express.compress());
     app.use(express.cookieParser('my secret here'));
+    app.use(express.session({ secret: 'thisismysupersecret' }));
     app.use(flash());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
