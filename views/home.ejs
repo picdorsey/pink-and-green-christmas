@@ -23,7 +23,9 @@
                 <div id="tree-bottom"></div>
                 
                 <ul id="bulbs">
-                    <% for(var i = 0; i < wishes.length; i++) {
+                    <% 
+                    wishes = shuffleArray(wishes);
+                    for(var i = 0; i < wishes.length; i++) {
                        if(wishes[i].visible) { %>
                             <li id="<%= wishes[i]._id %>" class="bulb"><span class="ornament"><span class="gravatar img-circle" style="background-image: url(<%=wishes[i].gravatar%>)"></span></span></li>
                     <%  } %>

@@ -73,7 +73,7 @@ function getRandom() {
 
 function newBulbAdded() {
     reSizeTree(); // check if more tree-body is needed
-    $newBulb = $('.bulb:first-child'); // isolates most recent bulb added
+    $newBulb = $('.bulb').last(); // isolates most recent bulb added
     $newBulb.bulbify(i);
     i++;
 }
@@ -151,4 +151,14 @@ $.fn.scrollTo = function( target, options, callback ) {
             }
         });
     });
+}
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
 }
