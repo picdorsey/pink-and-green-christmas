@@ -18,7 +18,7 @@ jQuery(function($){
 
 		actions: function(){
 			$('#wish-form').submit(function(){
-				if(!$('#wish-form #message').val()){
+				if(!$('#wish-form #message').val() || !$('#wish-form #name').val() || !$('#wish-form #email').val() ){
 					return false;
 				}
 

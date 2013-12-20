@@ -17,6 +17,7 @@
     "validator": "latest",
     "connect-flash": "latest",
     "connect-mongostore": "latest",
-    "gravatar": "latest"
+    "gravatar": "latest",
+    "wordfilter": "latest"
   }
 }
