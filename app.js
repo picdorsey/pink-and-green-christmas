@@ -11,9 +11,7 @@ var express = require('express'),
     Account = require('./models/account');
 
 var app = express();
-var mongoUri = process.env.MONGOLAB_URI || 
-  process.env.MONGOHQ_URL || 
-  'mongodb://localhost/mydb'; 
+var mongoUri = process.env.MONGOLAB_URI ||process.env.MONGOHQ_URL || 'mongodb://localhost/christmas';
 
 // configuration
 app.configure(function(){
