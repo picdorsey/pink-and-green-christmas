@@ -1,5 +1,3 @@
-# A Picdorsey Christmas:
-
 [Testing site](http://christmas.tylodo.com)
 
 ## Installation
